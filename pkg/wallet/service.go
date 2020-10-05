@@ -18,21 +18,6 @@ type Service struct {
 	payments      []*types.Payment
 }
 
-// RegisterAccount function
-func RegisterAccount(service *Service, phone types.Phone) {
-	for _, account := range service.accounts {
-		if account.Phone == phone {
-			return
-		}
-	}
-	service.nextAccountID++
-	service.accounts = append(service.accounts, &types.Account{
-		ID:      service.nextAccountID,
-		Phone:   phone,
-		Balance: 0,
-	})
-}
-
 // RegisterAccount function receiver
 func (service *Service) RegisterAccount(phone types.Phone) {
 	for _, account := range service.accounts {
